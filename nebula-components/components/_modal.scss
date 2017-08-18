@@ -55,6 +55,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    color: $nb-color-black;
     background: transparent;
 
     &::after {
@@ -68,7 +69,7 @@
       background-color: $nb-color-black;
       @include nb-input-icon(center, 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNDEuNzU2IDQxLjc1NiI+PHBhdGggZD0iTTI3Ljk0OCAyMC44NzhMNDAuMjkgOC41MzZjMS45NTQtMS45NTMgMS45NTQtNS4xMiAwLTcuMDctMS45NS0xLjk1My01LjExOC0xLjk1My03LjA3IDBMMjAuODggMTMuODA4IDguNTM1IDEuNDY0Yy0xLjk1LTEuOTUyLTUuMTItMS45NTItNy4wNyAwLTEuOTUzIDEuOTUzLTEuOTUzIDUuMTIgMCA3LjA3TDEzLjgwNyAyMC44OCAxLjQ2NSAzMy4yMmMtMS45NTMgMS45NTMtMS45NTMgNS4xMiAwIDcuMDcuOTc1Ljk3OCAyLjI1NiAxLjQ2NSAzLjUzNSAxLjQ2NSAxLjI3OCAwIDIuNTYtLjQ4NyAzLjUzNS0xLjQ2NGwxMi4zNDMtMTIuMzRMMzMuMjIgNDAuMjljLjk3Ny45NzcgMi4yNTcgMS40NjQgMy41MzYgMS40NjRzMi41Ni0uNDg3IDMuNTM1LTEuNDY0YzEuOTU0LTEuOTUzIDEuOTU0LTUuMTIgMC03LjA3TDI3Ljk1IDIwLjg3N3oiIGZpbGw9IiNGRkYiLz48L3N2Zz4=', 1);
     }
-    
+
     &.c-btn--sm {
       padding-right: ($nb-spacing-unit-double * 1.7); // To accommodate button text
     }
