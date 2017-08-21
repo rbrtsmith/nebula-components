@@ -1,0 +1,22 @@
+$nb-pills-background: $nb-color-white !default;
+
+$nb-pill-background: $nb-color-white !default;
+$nb-pill-border-radius: $nb-spacing-unit !default;
+$nb-pill-padding: $nb-spacing-unit-half $nb-spacing-unit !default;
+$nb-pill-transition: background-color $nb-transition-duration ease !default;
+
+$nb-pill-active-border-width: ($nb-spacing-unit / 6) !default;
+$nb-pill-border-active: $nb-pill-active-border-width solid $nb-active-border-color !default;
+
+$nb-pill-color-disabled: $nb-color-grey !default;
+$nb-pill-background-disabled: $nb-color-grey-v-light !default;
+
+$nb-pill-color-status: $nb-color-white !default;
+$nb-pill-background-success: $nb-color-success !default;
+$nb-pill-background-info: $nb-color-info !default;
+$nb-pill-background-warning: $nb-color-warning !default;
+$nb-pill-background-error: $nb-color-error !default;
+
+$nb-panel-padding: $nb-spacing-unit !default;
+$nb-panel-background: $nb-color-white !default;
+$nb-panel-border-radius: $nb-spacing-unit-half !default;
