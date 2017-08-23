@@ -10,6 +10,7 @@ import Flyouts from './Components/Flyouts'
 import Tabs from './Components/Tabs'
 import ModalExample from './Components/Modal/Example'
 import OpenModal from './Components/Modal/Open'
+import Pills from './Components/Pills'
 import SiteContent from './Components/SiteContent'
 
 class App extends Component {
@@ -54,7 +55,7 @@ class App extends Component {
           <Flyouts />
           <OpenModal open={this.openModal} />
           <Tabs />
-
+          <Pills />
         </section>
       </div>
     )
