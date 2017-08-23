@@ -41,7 +41,7 @@ class Pills extends Component {
 }
 
 Pills.propTypes = {
-  children: T.node,
+  children: T.node.isRequired,
   className: T.string,
 }
 

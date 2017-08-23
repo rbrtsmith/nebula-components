@@ -20,7 +20,7 @@ const List = ({ children, activatePill, activeIndex, className }) => {
 
 List.propTypes = {
   className: T.string,
-  children: T.node,
+  children: T.node.isRequired,
   activatePill: T.func,
   activeIndex: T.number,
 }

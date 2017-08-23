@@ -60,7 +60,7 @@ const Pill = (
 
 Pill.propTypes = {
   node: T.string,
-  children: T.node,
+  children: T.node.isRequired,
   index: T.number,
   activatePill: T.func,
   isActive: T.bool,
