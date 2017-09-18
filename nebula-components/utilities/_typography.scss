@@ -3,3 +3,39 @@
     @include nb-font-size($key, true);
   }
 }
+
+@each $key in $nb-line-heights: {
+  .#{$nb-namespace}u-font-size-#{$key} {
+    @include nb-font-size($key, true);
+  }
+}
+
+.#{$nb-namespace}u-font-size-xxl {
+  @include nb-font-size('xxl');
+}
+
+.#{$nb-namespace}u-font-size-xl {
+  @include nb-font-size('xl');
+}
+
+.#{$nb-namespace}u-font-size-lg {
+  @include nb-font-size('lg');
+}
+
+.#{$nb-namespace}u-font-size-md {
+  @include nb-font-size('md');
+}
+
+.#{$nb-namespace}u-font-size-sm {
+  @include nb-font-size('sm');
+}
+
+.#{$nb-namespace}u-font-size-xs {
+  @include nb-font-size('xs');
+}
+
+.#{$nb-namespace}u-font-size-xxs {
+  @include nb-font-size('xxs');
+}
+
+
