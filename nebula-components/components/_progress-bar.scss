@@ -1,0 +1,20 @@
+@if $nb-use-progress-bar {
+  .#{$nb-namespace}c-progress-bar {
+    border: 1px solid $nb-color-base-border;
+    background-color: $nb-color-white;
+  }
+
+  .#{$nb-namespace}c-progress-bar__indicator--current {
+    width: 75%;
+    background: repeating-linear-gradient(-45deg, transparent, transparent $nb-spacing-unit, $nb-color-info $nb-spacing-unit, $nb-color-info $nb-spacing-unit-double), linear-gradient(to bottom, $nb-color-grey-v-light, $nb-color-info);
+  }
+
+  .#{$nb-namespace}c-progress-bar__indicator--success {
+    background: repeating-linear-gradient(-45deg, transparent, transparent $nb-spacing-unit, $nb-color-success $nb-spacing-unit, $nb-color-success $nb-spacing-unit-double), linear-gradient(to bottom, $nb-color-grey-v-light, $nb-color-success);
+  }
+
+  .#{$nb-namespace}c-progress-bar__indicator--error {
+    width: 25%;
+    background: repeating-linear-gradient(-45deg, transparent, transparent $nb-spacing-unit, $nb-color-error $nb-spacing-unit, $nb-color-error $nb-spacing-unit-double), linear-gradient(to bottom, $nb-color-grey-v-light, $nb-color-error);
+  }
+}

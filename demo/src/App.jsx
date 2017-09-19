@@ -13,6 +13,7 @@ import Loader from './Components/Loader'
 import ModalExample from './Components/Modal/Example'
 import OpenModal from './Components/Modal/Open'
 import Pills from './Components/Pills'
+import ProgressBar from './Components/ProgressBar'
 import SiteContent from './Components/SiteContent'
 import Pagination from './Components/Pagination'
 import UIList from './Components/UIList'
@@ -135,6 +136,8 @@ class App extends Component {
             <UIList />
             <h3>Link List</h3>
             <LinkList />
+            <h3>Progress Bars</h3>
+            <ProgressBar />
           </div>
         </section>
       </div>

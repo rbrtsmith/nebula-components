@@ -47,7 +47,6 @@ const LinkList = () => (
         </Item>
       </List>
     </div>
-    adsfasd
   </div>
 )
 
