@@ -77,7 +77,7 @@
   }
 
   .#{$nb-namespace}c-table__sort-text {
-    vertical-align: text-bottom;
+    vertical-align: middle;
 
     &::after {
       $size: 16px;
@@ -105,8 +105,8 @@
 
   /* Reason for disable @Each and nested MQ, */
   /* stylelint-disable max-nesting-depth  */
-  @each $key, $value in $nb-table-collapse-map {
-    @include nb-respond-to('max-#{$key}', $nb-table-collapse-map) {
+  @each $key, $value in $nb-table-collapse-breakpoints {
+    @include nb-respond-to('max-#{$key}', $nb-table-collapse-breakpoints) {
       .#{$nb-namespace}c-table--stack\@max-#{$key} {
         &.#{$nb-namespace}c-table,
         .#{$nb-namespace}c-table__header,
@@ -193,6 +193,7 @@
 
           @include nb-respond-to('max-xs') {
             display: block;
+            padding-left: $nb-spacing-unit-half;
           }
         }
 

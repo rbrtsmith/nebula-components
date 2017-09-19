@@ -1,5 +1,5 @@
 $nb-table-cell-label-width: 100px !default;
-$nb-table-collapse-map: (
+$nb-table-collapse-breakpoints: (
   sm: map-get($nb-breakpoints, 'sm'),
   md: map-get($nb-breakpoints, 'md')
 ) !default;
