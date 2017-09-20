@@ -48,6 +48,11 @@
     display: none;
     width: 100%;
     background: transparent;
+
+    &:active,
+    &:hover {
+      outline-width: 0;
+    }
   }
 
   .#{$nb-namespace}c-foldable__toggle[disabled] {

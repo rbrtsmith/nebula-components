@@ -292,7 +292,8 @@
     border-style: solid;
     border-color: $nb-color-base-border;
     opacity: 0;
-    transform: translateY(-100%);
+    transform-origin: 50% 0;
+    transform: scale(1, 0);
   }
 
   @include nb-respond-to('max-#{$nb-nav-bp-key}') {
@@ -314,7 +315,7 @@
 }
 
 .#{$nb-namespace}c-navbar__dropdown.is-open {
-  transform: translateY(0);
+  transform: scale(1);
   opacity: 1;
   transition: transform $nb-transition-duration, opacity $nb-transition-duration;
   border-width: 0 1px 1px;

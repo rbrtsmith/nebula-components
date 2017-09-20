@@ -21,6 +21,7 @@
     width: 100%;
     margin-bottom: 0;
     border-collapse: collapse;
+    border: $nb-table-borders;
   }
 
   .#{$nb-namespace}c-table__header {
@@ -38,42 +39,57 @@
 
   .#{$nb-namespace}c-table__cell,
   .#{$nb-namespace}c-table__header-cell {
-    padding: $nb-spacing-unit;
     vertical-align: middle;
     text-align: left;
-
-    @include nb-respond-to('max-sm') {
-      padding-left: $nb-spacing-unit-half;
-      padding-right: $nb-spacing-unit-half;
-    }
   }
 
-  .#{$nb-namespace}c-table__cell > a {
-    display: inline-block;
-    // Creating a larger hit area for improved touch-UX
-    margin-top: -$nb-spacing-unit-half;
-    margin-bottom: -$nb-spacing-unit-half;
-    padding-top: $nb-spacing-unit-half;
-    padding-bottom: $nb-spacing-unit-half;
-  }
-
-
-  .#{$nb-namespace}c-table--sorted .#{$nb-namespace}c-table__header-cell--sortable {
-    padding: 0;
+  .#{$nb-namespace}c-table__cell + .#{$nb-namespace}c-table__cell,
+  .#{$nb-namespace}c-table__header-cell + .#{$nb-namespace}c-table__header-cell {
+    border-left: $nb-table-borders;
   }
 
   .#{$nb-namespace}c-table__sort-button {
     width: 100%;
-    padding: $nb-spacing-unit;
     white-space: nowrap;
     text-align: left;
     background: transparent;
     color: $nb-color-base-text;
+  }
 
-    @include nb-respond-to('max-sm') {
-      padding-left: $nb-spacing-unit-half;
-      padding-right: $nb-spacing-unit-half;
+  @each $key, $value in $nb-table-spacing-map {
+    .#{$nb-namespace}c-table--spacing-#{$key} {
+      .#{$nb-namespace}c-table__cell,
+      .#{$nb-namespace}c-table__header-cell {
+        padding: $value;
+
+        @include nb-respond-to('max-sm') {
+          padding-left: $nb-table-spacing;
+          padding-right: $nb-table-spacing;
+        }
+      }
+
+      .#{$nb-namespace}c-table__cell > a {
+        display: inline-block;
+        // Creating a larger hit area for improved touch-UX
+        margin-top: -$value;
+        margin-bottom: -$value;
+        padding-top: $value;
+        padding-bottom: $value;
+      }
+
+      .#{$nb-namespace}c-table__sort-button {
+        padding: $value;
+
+        @include nb-respond-to('max-sm') {
+          padding-left: $value;
+          padding-right: $value;
+        }
+      }
     }
+  }
+
+  .#{$nb-namespace}c-table--sorted .#{$nb-namespace}c-table__header-cell--sortable {
+    padding: 0;
   }
 
   .#{$nb-namespace}c-table__sort-text {
@@ -84,7 +100,7 @@
       display: inline-block;
       width: $size;
       height: $size;
-      margin-left: $nb-spacing-unit-half;
+      margin-left: $nb-table-spacing;
       vertical-align: middle;
       background-size: contain;
       background-repeat: no-repeat;
@@ -128,81 +144,102 @@
             float: left;
           }
         }
+      }
 
+      @each $spacing-key, $spacing-value in $nb-table-spacing-map {
+        .#{$nb-namespace}c-table--spacing-#{$spacing-key}.#{$nb-namespace}c-table--stack\@max-#{$key} {
+          .#{$nb-namespace}c-table__row {
+            padding: ($spacing-value / 2) 0;
+          }
+
+          .#{$nb-namespace}c-table__cell,
+          .#{$nb-namespace}c-table__header-cell {
+            padding-top: ($spacing-value / 2);
+            padding-bottom: ($spacing-value / 2);
+          }
+        }
+      }
+
+      .#{$nb-namespace}c-table--stack\@max-#{$key} {
         .#{$nb-namespace}c-table__header-cell:not(.#{$nb-namespace}c-table__header-cell--sortable),
         &:not(.#{$nb-namespace}c-table--sorted) .#{$nb-namespace}c-table__header {
           @include nb-visually-hidden;
         }
 
         .#{$nb-namespace}c-table__header {
-          padding-left: $nb-spacing-unit-half;
+          padding-left: $nb-table-spacing;
         }
 
         .#{$nb-namespace}c-table__header-cell--sortable {
           display: inline-block;
         }
 
-        .#{$nb-namespace}c-table__row {
-          padding: $nb-spacing-unit-half 0;
+        .#{$nb-namespace}c-table__header-cell {
+          border-left-width: 0;
         }
 
-        .#{$nb-namespace}c-table__cell,
-        .#{$nb-namespace}c-table__header-cell {
-          padding-top: $nb-spacing-unit-half;
-          padding-bottom: $nb-spacing-unit-half;
+        .#{$nb-namespace}c-table__cell {
+          border-left-width: 0;
         }
 
         &:not(.#{$nb-namespace}c-table--no-labels) .#{$nb-namespace}c-table__cell {
-          overflow: hidden;
-          margin-right: $nb-spacing-unit-half;
-          padding-left: $nb-table-cell-label-width;
+          margin-right: $nb-table-spacing;
+          padding-left: $nb-table-collapsed-label-width;
           padding-right: 0;
           vertical-align: top;
         }
 
         &:not(.#{$nb-namespace}c-table--no-labels) .#{$nb-namespace}c-table__cell[data-label]::before {
           display: block;
-          width: 0;
+          width: calc(#{$nb-table-collapsed-label-width} - #{$nb-table-spacing});
           float: left;
-          margin-left: calc(-#{$nb-table-cell-label-width} + #{$nb-spacing-unit-half});
+          margin-left: calc(-#{$nb-table-collapsed-label-width} + #{$nb-table-spacing});
+          overflow: hidden;
+          text-overflow: ellipsis;
           vertical-align: top;
           content: attr(data-label);
-          font-weight: bold;
+
+          @include nb-font-size('xxs');
         }
       }
 
       .#{$nb-namespace}c-table--sorted.#{$nb-namespace}c-table--stack\@max-#{$key} {
         .#{$nb-namespace}c-table__header {
-          padding-top: $nb-spacing-unit-half;
+          padding-top: $nb-table-spacing;
           padding-left: 0;
+
+          @include nb-respond-to('max-xs') {
+            padding-top: 0;
+          }
         }
 
         .#{$nb-namespace}c-table__header::before {
           display: table-cell;
-          padding: $nb-spacing-unit-half;
+          padding: $nb-table-spacing;
           white-space: nowrap;
-          font-weight: bold;
           content: attr(aria-label);
+
+          @include nb-font-size('xxs');
         }
 
         .#{$nb-namespace}c-table__header-row {
           display: table-cell;
           width: 100%;
           padding: 0;
-          padding-right: $nb-spacing-unit-half;
+          padding-right: $nb-table-spacing;
 
           @include nb-respond-to('max-xs') {
             display: block;
-            padding-left: $nb-spacing-unit-half;
+            padding-left: $nb-table-spacing;
           }
         }
 
         .#{$nb-namespace}c-table__header-cell {
-          padding: 0 $nb-spacing-unit-half $nb-spacing-unit-half 0;
+          padding: 0 $nb-table-spacing $nb-table-spacing 0;
         }
 
         .#{$nb-namespace}c-table__sort-button {
-          padding: $nb-spacing-unit-half ($nb-spacing-unit * 0.75);
+          padding: $nb-table-spacing (($nb-table-spacing * 2) * 0.75);
           background: $nb-color-grey-v-light;
         }
       }

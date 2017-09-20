@@ -1,5 +1,15 @@
-$nb-table-cell-label-width: 100px !default;
+$nb-table-collapsed-label-width: 80px !default;
 $nb-table-collapse-breakpoints: (
   sm: map-get($nb-breakpoints, 'sm'),
   md: map-get($nb-breakpoints, 'md')
 ) !default;
+
+$nb-table-spacing: $nb-spacing-unit-half;
+$nb-table-spacing-half: ($nb-table-spacing / 2);
+
+$nb-table-spacing-map: (
+  sm: $nb-table-spacing,
+  md: ($nb-table-spacing * 2)
+) !default;
+
+$nb-table-borders: 1px solid $nb-color-base-border;
