@@ -55,6 +55,10 @@
     text-align: left;
   }
 
+  .#{$nb-namespace}c-table__header-cell {
+    position: relative;
+  }
+
   .#{$nb-namespace}c-table__cell + .#{$nb-namespace}c-table__cell,
   .#{$nb-namespace}c-table__header-cell + .#{$nb-namespace}c-table__header-cell {
     border-left: $nb-table-borders;
@@ -66,6 +70,15 @@
     text-align: left;
     background: transparent;
     color: $nb-color-base-text;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+    }
   }
 
   .#{$nb-namespace}c-table__footer {
