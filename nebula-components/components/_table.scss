@@ -25,16 +25,28 @@
   }
 
   .#{$nb-namespace}c-table__header {
-    border-bottom: 1px solid $nb-color-base-border;
+    border-bottom: $nb-table-borders;
     background-color: $nb-color-white;
   }
 
-  .#{$nb-namespace}c-table__row:nth-child(even) {
-    background: $nb-color-grey-v-light;
+  .#{$nb-namespace}c-table__header-row + .#{$nb-namespace}c-table__header-row {
+    border-top: $nb-table-borders;
+  }
+
+  .#{$nb-namespace}c-table__row:not(.#{$nb-namespace}c-table__header-row):nth-child(even) {
+    background-color: $nb-color-grey-v-light;
   }
 
   .#{$nb-namespace}c-table__row:nth-child(odd) {
-    background: $nb-color-white;
+    background-color: $nb-color-white;
+  }
+
+  .#{$nb-namespace}c-table__header--hover-row-highlight,
+  .#{$nb-namespace}c-table__body--hover-row-highlight {
+    > .#{$nb-namespace}c-table__row:hover,
+    > .#{$nb-namespace}c-table__row:focus {
+      background-color: $nb-table-hover-background;
+    }
   }
 
   .#{$nb-namespace}c-table__cell,
@@ -56,6 +68,13 @@
     color: $nb-color-base-text;
   }
 
+  .#{$nb-namespace}c-table__footer {
+    border-left: $nb-table-borders;
+    border-right: $nb-table-borders;
+    border-bottom: $nb-table-borders;
+    background: $nb-color-white;
+  }
+
   @each $key, $value in $nb-table-spacing-map {
     .#{$nb-namespace}c-table--spacing-#{$key} {
       .#{$nb-namespace}c-table__cell,
@@ -66,6 +85,10 @@
           padding-left: $nb-table-spacing;
           padding-right: $nb-table-spacing;
         }
+      }
+
+      + .#{$nb-namespace}c-table__footer {
+        padding: $value;
       }
 
       .#{$nb-namespace}c-table__cell > a {

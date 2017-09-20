@@ -13,3 +13,5 @@ $nb-table-spacing-map: (
 ) !default;
 
 $nb-table-borders: 1px solid $nb-color-base-border;
+
+$nb-table-hover-background: lighten($nb-color-alpha, 40%);
