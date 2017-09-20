@@ -1,6 +1,6 @@
 {
   "name": "nebula-components",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Building on top of Nebula CSS a series of common components",
   "repository": "https://github.com/rbrtsmith/nebula-components",
   "scripts": {
@@ -35,6 +35,6 @@
     "stylelint-config-nebula": "^0.2.0"
   },
   "dependencies": {
-    "nebula-css": "^2.6.2"
+    "nebula-css": "^2.7.0"
   }
 }
