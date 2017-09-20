@@ -219,7 +219,6 @@
           margin-left: calc(-#{$nb-table-collapsed-label-width} + #{$nb-table-spacing});
           overflow: hidden;
           text-overflow: ellipsis;
-          vertical-align: top;
           content: attr(data-label);
 
           @include nb-font-size('xxs');
@@ -243,18 +242,26 @@
           content: attr(aria-label);
 
           @include nb-font-size('xxs');
+
+          @include nb-respond-to('max-xs') {
+            display: block;
+          }
         }
 
         .#{$nb-namespace}c-table__header-row {
           display: table-cell;
-          width: 100%;
           padding: 0;
-          padding-right: $nb-table-spacing;
+          border-top-width: 0;
+          vertical-align: top;
 
           @include nb-respond-to('max-xs') {
-            display: block;
+            display: inline-block;
             padding-left: $nb-table-spacing;
           }
+        }
+
+        .#{$nb-namespace}c-table__header-row:last-child {
+          padding-right: $nb-table-spacing;
         }
 
         .#{$nb-namespace}c-table__header-cell {
