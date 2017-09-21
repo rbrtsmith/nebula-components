@@ -1,6 +1,7 @@
 @if $nb-use-form-input {
   .#{$nb-namespace}c-form-input {
     position: relative;
+    display: inline-block;
     font-family: $nb-form-input-font-family;
     font-weight: $nb-form-input-font-weight;
   }
@@ -13,17 +14,28 @@
     display: inline-block;
     padding-left: calc(#{$nb-form-input-icon-size} + #{$nb-spacing-unit-half});
 
-    &::before {
-      @include center-icon($nb-form-input-icon-size);
+    &::before,
+    &::after {
 
       position: absolute;
       top: 0;
       left: 0;
+      content: ' ';
+    }
+
+    &::before {
+      @include center-icon($nb-form-input-icon-size);
+
       width: $nb-form-input-icon-size;
       height: $nb-form-input-icon-size;
       background: $nb-form-input-background;
       border: 1px solid $nb-form-input-border-color;
-      content: ' ';
+    }
+
+    &::after {
+      width: $nb-form-input-icon-size * 1.7;
+      height: $nb-form-input-icon-size * 1.7;
+      transform: translate(-12.5%, -12.5%);
     }
   }
 
