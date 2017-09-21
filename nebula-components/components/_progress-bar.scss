@@ -7,6 +7,6 @@
 
   .#{$nb-namespace}c-progress-bar__indicator {
     height: ($nb-spacing-unit-double - $nb-spacing-unit-half);
-    background: repeating-linear-gradient(-45deg, $nb-color-alpha-light, $nb-color-alpha-light $nb-spacing-unit, $nb-color-alpha $nb-spacing-unit, $nb-color-alpha $nb-spacing-unit-double); //linear-gradient(to bottom, $nb-color-grey-v-light, $nb-color-info);
+    background: repeating-linear-gradient(-45deg, $nb-color-alpha-light, $nb-color-alpha-light $nb-spacing-unit, $nb-color-alpha $nb-spacing-unit, $nb-color-alpha $nb-spacing-unit-double);
   }
 }
