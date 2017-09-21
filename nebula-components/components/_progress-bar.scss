@@ -1,22 +1,12 @@
 @if $nb-use-progress-bar {
+  $nb-color-alpha-light: lighten($nb-color-alpha, 15%);
+
   .#{$nb-namespace}c-progress-bar {
     border: 1px solid $nb-color-base-border;
-    background-color: $nb-color-white;
   }
 
   .#{$nb-namespace}c-progress-bar__indicator {
-    height: $nb-spacing-unit-double;
-  }
-
-  .#{$nb-namespace}c-progress-bar__indicator--current {
-    background: repeating-linear-gradient(-45deg, transparent, transparent $nb-spacing-unit, $nb-color-info $nb-spacing-unit, $nb-color-info $nb-spacing-unit-double), linear-gradient(to bottom, $nb-color-grey-v-light, $nb-color-info);
-  }
-
-  .#{$nb-namespace}c-progress-bar__indicator--success {
-    background: repeating-linear-gradient(-45deg, transparent, transparent $nb-spacing-unit, $nb-color-success $nb-spacing-unit, $nb-color-success $nb-spacing-unit-double), linear-gradient(to bottom, $nb-color-grey-v-light, $nb-color-success);
-  }
-
-  .#{$nb-namespace}c-progress-bar__indicator--error {
-    background: repeating-linear-gradient(-45deg, transparent, transparent $nb-spacing-unit, $nb-color-error $nb-spacing-unit, $nb-color-error $nb-spacing-unit-double), linear-gradient(to bottom, $nb-color-grey-v-light, $nb-color-error);
+    height: ($nb-spacing-unit-double - $nb-spacing-unit-half);
+    background: repeating-linear-gradient(-45deg, $nb-color-alpha-light, $nb-color-alpha-light $nb-spacing-unit, $nb-color-alpha $nb-spacing-unit, $nb-color-alpha $nb-spacing-unit-double); //linear-gradient(to bottom, $nb-color-grey-v-light, $nb-color-info);
   }
 }

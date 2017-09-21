@@ -136,7 +136,7 @@ class App extends Component {
             <UIList />
             <h3>Link List</h3>
             <LinkList />
-            <h3>Progress Bars</h3>
+            <h3>Progress Bar</h3>
             <ProgressBar />
           </div>
         </section>
