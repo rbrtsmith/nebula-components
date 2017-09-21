@@ -3,6 +3,7 @@
 
   .#{$nb-namespace}c-progress-bar {
     border: 1px solid $nb-color-base-border;
+    background-color: $nb-color-white;
   }
 
   .#{$nb-namespace}c-progress-bar__indicator {
