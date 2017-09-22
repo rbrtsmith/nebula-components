@@ -9,6 +9,7 @@ import Cards from './Components/Cards'
 import StatusCards from './Components/Cards/StatusCards'
 import Flyouts from './Components/Flyouts'
 import Tabs from './Components/Tabs'
+import Tooltip from './Components/Tooltip'
 import Loader from './Components/Loader'
 import ModalExample from './Components/Modal/Example'
 import OpenModal from './Components/Modal/Open'
@@ -138,6 +139,7 @@ class App extends Component {
             <LinkList />
             <h3>Progress Bar</h3>
             <ProgressBar />
+            <Tooltip />
           </div>
         </section>
       </div>

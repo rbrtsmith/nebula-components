@@ -1,0 +1,49 @@
+@if $nb-use-tooltip {
+  .#{$nb-namespace}c-tooltip {
+    position: relative;
+    display: inline-block;
+  }
+
+  .#{$nb-namespace}c-tooltip.is-open > .#{$nb-namespace}c-tooltip__content {
+    transform: scale(1);
+  }
+
+  .#{$nb-namespace}c-tooltip__content {
+    position: absolute;
+    z-index: 1;
+    max-width: calc(100vw - #{$nb-spacing-unit-double});
+    transform: scale(0);
+    color: $nb-color-white;
+    background-color: $nb-color-alpha;
+    padding: $nb-spacing-unit;
+  }
+
+  .#{$nb-namespace}c-tooltip__toggle {
+    background-color: transparent;
+  }
+
+  .#{$nb-namespace}c-tooltip__content--north {
+    bottom: calc(100% - #{$nb-spacing-unit-half});
+    left: 0;
+
+    &::after {
+      @include nb-triangle(down, $color: $nb-color-alpha);
+      bottom: 0;
+      left: 50%;
+      transform: rotate(-45deg) translateX(-50%);
+      box-shadow: none;
+    }
+  }
+
+  .#{$nb-namespace}c-tooltip__content--south {
+    top: calc(100% + #{$nb-spacing-unit-half});
+    left: 0;
+
+    &::after {
+      @include nb-triangle(up, $color: $nb-color-alpha);
+      left: 50%;
+      transform: rotate(-45deg) translateX(-50%);
+      box-shadow: none;
+    }
+  }
+}
