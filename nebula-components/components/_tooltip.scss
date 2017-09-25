@@ -1,11 +1,11 @@
 @if $nb-use-tooltip {
+  $position: -0.75rem;
+
   .#{$nb-namespace}c-tooltip {
+    min-width: 160px;
     position: relative;
     display: inline-block;
-  }
-
-  .#{$nb-namespace}c-tooltip.is-open > .#{$nb-namespace}c-tooltip__content {
-    transform: scale(1);
+    text-align: center;
   }
 
   .#{$nb-namespace}c-tooltip__content {
@@ -13,35 +13,39 @@
     z-index: 1;
     max-width: calc(100vw - #{$nb-spacing-unit-double});
     transform: scale(0);
-    color: $nb-color-white;
-    background-color: $nb-color-alpha;
     padding: $nb-spacing-unit;
+    color: $nb-color-white;
+    background-color: $nb-color-black;
   }
 
-  .#{$nb-namespace}c-tooltip__toggle {
-    background-color: transparent;
+  .#{$nb-namespace}c-tooltip__trigger {
+    cursor: pointer;
+
+    &:hover + .#{$nb-namespace}c-tooltip__content,
+    &:focus + .#{$nb-namespace}c-tooltip__content {
+      transform: scale(1);
+    }
   }
 
   .#{$nb-namespace}c-tooltip__content--north {
-    bottom: calc(100% - #{$nb-spacing-unit-half});
-    left: 0;
+    bottom: calc(100% - -#{$nb-spacing-unit-half});
 
     &::after {
-      @include nb-triangle(down, $color: $nb-color-alpha);
-      bottom: 0;
+      @include nb-triangle(down, $color: $nb-color-black);
       left: 50%;
+      bottom: auto;
       transform: rotate(-45deg) translateX(-50%);
       box-shadow: none;
     }
   }
 
   .#{$nb-namespace}c-tooltip__content--south {
-    top: calc(100% + #{$nb-spacing-unit-half});
-    left: 0;
+    top: calc(100% - -#{$nb-spacing-unit-half});
 
     &::after {
-      @include nb-triangle(up, $color: $nb-color-alpha);
+      @include nb-triangle(up, $color: $nb-color-black);
       left: 50%;
+      top: #{$position};
       transform: rotate(-45deg) translateX(-50%);
       box-shadow: none;
     }

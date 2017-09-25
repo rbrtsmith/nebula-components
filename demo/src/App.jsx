@@ -139,7 +139,8 @@ class App extends Component {
             <LinkList />
             <h3>Progress Bar</h3>
             <ProgressBar />
-            <Tooltip />
+            <Tooltip direction="north" />
+            <Tooltip direction="south" />
           </div>
         </section>
       </div>

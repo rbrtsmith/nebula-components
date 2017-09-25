@@ -1,36 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Tooltips from './Tooltips'
+const Tooltip = ({ direction }) => (
+  <div className="o-grid__item u-1/4@sm">
+    <div role="tooltip" className="c-tooltip">
+      <span className="c-tooltip__trigger">Hover over me</span>
+      <div className={`c-tooltip__content c-tooltip__content--${direction}`}>
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </div>
+      </div>
+    </div>
+  </div>
+)
 
-class TooltipsContainer extends Component {
-  constructor() {
-    super()
-    this.state = {
-      openTooltip: {
-        north: false,
-        south: false,
-      },
-    }
-  }
-
-  handleClick = (direction) => {
-    const newState = Object.keys(this.state.openTooltip).reduce((acc, curr) => {
-      acc[curr] = false
-      return acc
-    }, {})
-    this.setState({
-      openTooltip: {
-        ...newState,
-        [direction]: !this.state.openTooltip[direction],
-      },
-    })
-  }
-
-  render() {
-    const { openTooltip } = this.state
-    return <Tooltips handleClick={this.handleClick} openTooltip={openTooltip} />
-  }
+Tooltip.propTypes = {
+  direction: PropTypes.oneOf(['north', 'south']).isRequired,
 }
 
-export default TooltipsContainer
-
+export default Tooltip
