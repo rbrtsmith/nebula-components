@@ -18,6 +18,11 @@
     border-radius: $nb-button-border-radius;
     text-decoration: none;
     font-family: $nb-button-font-family;
+
+    &:active,
+    &:hover {
+      outline-width: 0;
+    }
   }
 
   .#{$nb-namespace}c-btn--sm {
