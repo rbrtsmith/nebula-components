@@ -170,6 +170,9 @@
 }
 
 .#{$nb-namespace}c-navbar__item--reset-line-height > * {
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
   line-height: 1.4;
 }
 

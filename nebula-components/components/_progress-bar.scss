@@ -3,11 +3,22 @@
 
   .#{$nb-namespace}c-progress-bar {
     border: 1px solid $nb-color-base-border;
-    background-color: $nb-color-white;
+     background-color: $nb-color-white;
   }
 
   .#{$nb-namespace}c-progress-bar__indicator {
-    height: ($nb-spacing-unit-double - $nb-spacing-unit-half);
-    background: repeating-linear-gradient(-45deg, $nb-color-alpha-light, $nb-color-alpha-light $nb-spacing-unit, $nb-color-alpha $nb-spacing-unit, $nb-color-alpha $nb-spacing-unit-double);
+    height: $nb-spacing-unit;
+    background: repeating-linear-gradient(-45deg, $nb-color-alpha-light, $nb-color-alpha-light 20px, $nb-color-alpha 20px, $nb-color-alpha 40px);
+    background-size: 56px 56px;
+    background-position-x: 0%;
+  }
+
+  .#{$nb-namespace}c-progress-bar__indicator--animated {
+    animation: slide 1.5s infinite linear forwards;
+  }
+
+  @keyframes slide {
+    0% { background-position-x: 0%; }
+    100% { background-position-x: 56px; }
   }
 }

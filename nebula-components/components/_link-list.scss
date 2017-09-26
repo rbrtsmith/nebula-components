@@ -5,7 +5,8 @@
     $compound-class: '#{$nb-namespace}c-#{$class}#{$modifier}-#{$key}';
     $computed-value: ($value / 2);
 
-    .#{$compound-class} .#{$nb-namespace}c-#{$class}__link {
+    .#{$compound-class} .#{$nb-namespace}c-#{$class}__link,
+    .#{$compound-class} .#{$nb-namespace}c-#{$class}__content {
       padding: $computed-value;
     }
 

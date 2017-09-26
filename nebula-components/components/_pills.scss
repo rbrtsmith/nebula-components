@@ -1,67 +1,73 @@
 @if $nb-use-pills {
-  @mixin pill($bg: $nb-color-white, $txt: $nb-color-base-text) {
-    padding: ($nb-spacing-unit-half / 2) $nb-spacing-unit-half;
+  @mixin pill-theme($bg: $nb-color-white, $txt: $nb-color-base-text) {
     color: $txt;
     background-color: $bg;
-    transition: background-color $nb-transition-duration;
-    border-radius: $nb-button-border-radius;
-
-    &:focus {
-      outline: none;
-    }
+    border-color: $bg;
+    box-shadow: none;
   }
 
-  @mixin pill-hover($bg, $darkenAmmount: 10%) {
+  @mixin themed-pill-active($bg, $darkenAmmount: 10%) {
     &:hover,
-    &:focus {
+    &:focus,
+    &.is-active {
+      color: $nb-color-white;
       background-color: darken($bg, $darkenAmmount);
+      border-color: darken($bg, $darkenAmmount);
     }
   }
 
   .#{$nb-namespace}c-pill {
-    @include pill;
+    display: inline-block;
+    padding: ($nb-spacing-unit-half / 2) $nb-spacing-unit-half;
+    border: 1px solid $nb-color-base-border;
+    border-radius: $nb-button-border-radius;
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
   }
 
-  .#{$nb-namespace}c-pill.is-active {
-    box-shadow: 0 0 0 ($nb-active-border-width /2) $nb-color-alpha inset;
+  .#{$nb-namespace}c-pill:not([class*="--"]).is-active {
+    box-shadow: 0 0 0 ($nb-active-border-width / 2) $nb-color-alpha inset;
   }
 
   .#{$nb-namespace}c-pill[disabled] {
+    @include pill-theme($nb-color-grey-v-light, $nb-color-grey);
     cursor: not-allowed;
-    @include pill($nb-color-grey-v-light, $nb-color-grey);
-  }
-
-  .#{$nb-namespace}c-pill--border {
-    border: 1px solid $nb-color-base-border;
-  }
-
-  .#{$nb-namespace}c-pill--alpha {
-    @include pill($nb-color-alpha, $nb-color-white);
-    @include pill-hover($nb-color-alpha);
-  }
-
-  .#{$nb-namespace}c-pill--beta {
-    @include pill($nb-color-beta, $nb-color-white);
-    @include pill-hover($nb-color-beta);
   }
 
   .#{$nb-namespace}c-pill--success {
-    @include pill($nb-color-success, $nb-color-white);
-    @include pill-hover($nb-color-success);
+    @include pill-theme($nb-color-success, $nb-color-white);
+  }
+
+  a.#{$nb-namespace}c-pill--success,
+  button.#{$nb-namespace}c-pill--success {
+    @include themed-pill-active($nb-color-success);
   }
 
   .#{$nb-namespace}c-pill--info {
-    @include pill($nb-color-info, $nb-color-white);
-    @include pill-hover($nb-color-info);
+    @include pill-theme($nb-color-info, $nb-color-white);
+  }
+
+  a.#{$nb-namespace}c-pill--info,
+  button.#{$nb-namespace}c-pill--info {
+    @include themed-pill-active($nb-color-info);
   }
 
   .#{$nb-namespace}c-pill--warning {
-    @include pill($nb-color-warning, $nb-color-white);
-    @include pill-hover($nb-color-warning);
+    @include pill-theme($nb-color-warning, $nb-color-white);
+  }
+
+  a.#{$nb-namespace}c-pill--warning,
+  button.#{$nb-namespace}c-pill--warning {
+    @include themed-pill-active($nb-color-warning);
   }
 
   .#{$nb-namespace}c-pill--error {
-    @include pill($nb-color-error, $nb-color-white);
-    @include pill-hover($nb-color-error, 17%);
+    @include pill-theme($nb-color-error, $nb-color-white);
+  }
+
+  a.#{$nb-namespace}c-pill--error,
+  button.#{$nb-namespace}c-pill--error {
+    @include themed-pill-active($nb-color-error, 17%);
   }
 }
