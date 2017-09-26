@@ -1,13 +1,11 @@
 import React from 'react'
 
 import Typography from './Components/Typography'
-import Navbar from './Components/Navbar'
 import Tooltip from './Components/Tooltip'
 import SiteContent from './Components/SiteContent'
 
 const App = () => (
   <div>
-    <Navbar />
     <section id="main-content">
       <SiteContent />
       <div className="o-site-wrap o-site-wrap--padding">

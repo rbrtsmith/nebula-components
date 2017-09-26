@@ -7,7 +7,7 @@
   }
 
   .#{$nb-namespace}c-tooltip__content {
-    @include nb-visually-hidden();
+    @include nb-visually-hidden;
     transform: scale(0);
     opacity: 0;
 
@@ -25,7 +25,7 @@
 
   .#{$nb-namespace}c-tooltip:hover .#{$nb-namespace}c-tooltip__content,
   .#{$nb-namespace}c-tooltip:focus .#{$nb-namespace}c-tooltip__content {
-    @include nb-visually-visible();
+    @include nb-visually-visible;
     position: absolute;
     z-index: 1;
     max-width: calc(100vw - #{$nb-spacing-unit-double});

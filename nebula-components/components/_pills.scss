@@ -26,7 +26,7 @@
     text-decoration: none;
   }
 
-  .#{$nb-namespace}c-pill:not([class*="--"]).is-active {
+  .#{$nb-namespace}c-pill:not([class*='--']).is-active {
     box-shadow: 0 0 0 ($nb-active-border-width / 2) $nb-color-alpha inset;
   }
 
