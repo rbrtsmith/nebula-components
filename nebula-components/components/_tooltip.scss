@@ -2,52 +2,159 @@
   $position: -0.75rem;
 
   .#{$nb-namespace}c-tooltip {
-    min-width: 160px;
     position: relative;
     display: inline-block;
-    text-align: center;
   }
 
   .#{$nb-namespace}c-tooltip__content {
+    @include nb-visually-hidden();
+    transform: scale(0);
+    opacity: 0;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: ' ';
+    }
+  }
+
+  .#{$nb-namespace}c-tooltip:hover,
+  .#{$nb-namespace}c-tooltip:focus {
+    cursor: help;
+  }
+
+  .#{$nb-namespace}c-tooltip:hover .#{$nb-namespace}c-tooltip__content,
+  .#{$nb-namespace}c-tooltip:focus .#{$nb-namespace}c-tooltip__content {
+    @include nb-visually-visible();
     position: absolute;
     z-index: 1;
     max-width: calc(100vw - #{$nb-spacing-unit-double});
-    transform: scale(0);
     padding: $nb-spacing-unit;
     color: $nb-color-white;
     background-color: $nb-color-black;
-  }
-
-  .#{$nb-namespace}c-tooltip__trigger {
-    cursor: pointer;
-
-    &:hover + .#{$nb-namespace}c-tooltip__content,
-    &:focus + .#{$nb-namespace}c-tooltip__content {
-      transform: scale(1);
-    }
+    cursor: initial;
+    opacity: 1;
+    $delay: 0.5s;
+    transition: opacity 0.3s $delay, transform 0s $delay;
   }
 
   .#{$nb-namespace}c-tooltip__content--north {
     bottom: calc(100% - -#{$nb-spacing-unit-half});
+    left: 50%;
+
+    &::before {
+      $size: 10px;
+      top: 100%;
+      left: 50%;
+      border-top: $size solid $nb-color-black;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      margin-left: -$size;
+    }
 
     &::after {
-      @include nb-triangle(down, $color: $nb-color-black);
+      $width: 50px;
+      top: 100%;
       left: 50%;
-      bottom: auto;
-      transform: rotate(-45deg) translateX(-50%);
-      box-shadow: none;
+      width: $width;
+      height: 20px;
+      margin-left: -($width / 2);
+      background: transparent;
     }
+  }
+
+  .#{$nb-namespace}c-tooltip:hover .#{$nb-namespace}c-tooltip__content--north,
+  .#{$nb-namespace}c-tooltip:focus .#{$nb-namespace}c-tooltip__content--north {
+    transform: scale(1) translateX(-50%);
   }
 
   .#{$nb-namespace}c-tooltip__content--south {
     top: calc(100% - -#{$nb-spacing-unit-half});
+    left: 50%;
+
+    &::before {
+      $size: 10px;
+      bottom: 100%;
+      left: 50%;
+      border-bottom: $size solid $nb-color-black;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+      margin-left: -$size;
+    }
 
     &::after {
-      @include nb-triangle(up, $color: $nb-color-black);
+      $width: 50px;
+      bottom: 100%;
       left: 50%;
-      top: #{$position};
-      transform: rotate(-45deg) translateX(-50%);
-      box-shadow: none;
+      width: $width;
+      height: 20px;
+      margin-left: -($width / 2);
+      background: transparent;
     }
+  }
+
+  .#{$nb-namespace}c-tooltip:hover .#{$nb-namespace}c-tooltip__content--south,
+  .#{$nb-namespace}c-tooltip:focus .#{$nb-namespace}c-tooltip__content--south {
+    transform: scale(1) translateX(-50%);
+  }
+
+  .#{$nb-namespace}c-tooltip__content--east {
+    left: calc(100% + #{$nb-spacing-unit});
+    top: 50%;
+
+    &::before {
+      $size: 10px;
+      bottom: 50%;
+      right: 100%;
+      border-right: $size solid $nb-color-black;
+      border-bottom: $size solid transparent;
+      border-top: $size solid transparent;
+      margin-bottom: -$size;
+    }
+
+    &::after {
+      $height: 50px;
+      bottom: 50%;
+      right: 100%;
+      height: $height;
+      width: 20px;
+      margin-bottom: -($height / 2);
+      background: transparent;
+    }
+  }
+
+  .#{$nb-namespace}c-tooltip:hover .#{$nb-namespace}c-tooltip__content--east,
+  .#{$nb-namespace}c-tooltip:focus .#{$nb-namespace}c-tooltip__content--east {
+    transform: scale(1) translateY(-50%);
+  }
+
+  .#{$nb-namespace}c-tooltip__content--west {
+    right: calc(100% + #{$nb-spacing-unit});
+    top: 50%;
+
+    &::before {
+      $size: 10px;
+      bottom: 50%;
+      left: 100%;
+      border-left: $size solid $nb-color-black;
+      border-bottom: $size solid transparent;
+      border-top: $size solid transparent;
+      margin-bottom: -$size;
+    }
+
+    &::after {
+      $height: 50px;
+      bottom: 50%;
+      left: 100%;
+      height: $height;
+      width: 20px;
+      margin-bottom: -($height / 2);
+      background: transparent;
+    }
+  }
+
+  .#{$nb-namespace}c-tooltip:hover .#{$nb-namespace}c-tooltip__content--west,
+  .#{$nb-namespace}c-tooltip:focus .#{$nb-namespace}c-tooltip__content--west {
+    transform: scale(1) translateY(-50%);
   }
 }

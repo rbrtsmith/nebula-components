@@ -15,7 +15,7 @@ const Tooltip = ({ direction }) => (
 )
 
 Tooltip.propTypes = {
-  direction: PropTypes.oneOf(['north', 'south']).isRequired,
+  direction: PropTypes.string,
 }
 
 export default Tooltip
