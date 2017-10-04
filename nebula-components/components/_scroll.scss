@@ -1,0 +1,18 @@
+@if $nb-use-scroll {
+  .#{$nb-namespace}c-scroll {
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $nb-color-white;
+      border: 1px solid $nb-color-grey-light;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $nb-color-grey;
+    }
+  }
+}

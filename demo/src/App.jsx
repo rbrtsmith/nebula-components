@@ -15,6 +15,11 @@ const App = () => (
       <Typography />
       <StatusCards />
       <div className="o-site-wrap o-site-wrap--padding">
+        <div className="c-scroll" style={{ maxHeight: '100px' }}>
+          <div style={{ padding: '100px 0' }}>
+            Hello World
+          </div>
+        </div>
         <Tooltip direction="north" />
         <Tooltip direction="south" />
         <Tooltip direction="west" />
