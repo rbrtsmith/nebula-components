@@ -22,6 +22,7 @@
   }
 
   .#{$nb-namespace}c-status-card__component > * {
+    display: block;
     padding-left: ($nb-spacing-unit-half / 2 );
     padding-right: ($nb-spacing-unit-half / 2 );
   }

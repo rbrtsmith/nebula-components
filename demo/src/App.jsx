@@ -7,6 +7,57 @@ import StatusCards from './Components/Cards/StatusCards'
 
 const App = () => (
   <div>
+    <ul className="c-toast c-toast--ne">
+      <li className="c-toast__item">
+        <div className="c-status-card c-status-card--info">
+          <div className="c-status-card__component" />
+          <div className="c-status-card__body">
+            Nebula is great!
+          </div>
+        </div>
+      </li>
+      <li className="c-toast__item">
+        <div className="c-card">
+          Test
+        </div>
+      </li>
+    </ul>
+    <div className="c-toast c-toast--se">
+      <li className="c-toast__item">
+        <div className="c-card">
+          Test
+        </div>
+      </li>
+      <li className="c-toast__item">
+        <div className="c-card">
+          Test
+        </div>
+      </li>
+    </div>
+    <div className="c-toast c-toast--sw">
+      <li className="c-toast__item">
+        <div className="c-card">
+          Test
+        </div>
+      </li>
+      <li className="c-toast__item">
+        <div className="c-card">
+          Test
+        </div>
+      </li>
+    </div>
+    <div className="c-toast c-toast--nw">
+      <li className="c-toast__item">
+        <div className="c-card">
+          Test
+        </div>
+      </li>
+      <li className="c-toast__item">
+        <div className="c-card">
+          Test
+        </div>
+      </li>
+    </div>
     <section id="main-content">
       <SiteContent />
       <div className="o-site-wrap o-site-wrap--padding">

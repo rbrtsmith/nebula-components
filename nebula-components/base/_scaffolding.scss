@@ -1,6 +1,7 @@
 body {
   @include nb-base-font-size;
 
+  font-family: $nb-font-family-alpha;
   color: $nb-color-base-text;
   background-color: $nb-color-site-background;
 }
